@@ -1,0 +1,21 @@
+{
+  "name": "three",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn serve",
+    "serve": "webpack-dev-server --hot --inline --mode development",
+    "build": "webpack --display-error-details --progress --mode production"
+  },
+  "devDependencies": {
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "three": "^0.112.1",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
