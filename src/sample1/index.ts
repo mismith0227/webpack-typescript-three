@@ -1,44 +1,65 @@
-import * as THREE from 'three'
+import {
+  WebGLRenderer,
+  PerspectiveCamera,
+  Scene,
+  PointLight,
+  BoxGeometry,
+  MeshLambertMaterial,
+  Mesh,
+} from 'three'
 
 const Sample = () => {
-  // レンダラーを作成
-  const renderer = new THREE.WebGLRenderer()
-  // レンダラーのサイズを設定
-  renderer.setSize(800, 600)
-  // canvasをbodyに追加
-  document.body.appendChild(renderer.domElement)
+  const width = window.innerWidth
+  const height = window.innerHeight
+
+  // レンダラー作成
+  const renderer = new WebGLRenderer()
+  renderer.setSize(width, height)
+  renderer.setPixelRatio(window.devicePixelRatio)
+
+  // canvasにレンダラー追加
+  const container = document.getElementById('canvas-container')
+  container.appendChild(renderer.domElement)
+
+  // カメラ作成
+  const camera = new PerspectiveCamera(60, width / height, 1, 10)
+  camera.position.z = 3
 
   // シーンを作成
-  const scene = new THREE.Scene()
+  const scene = new Scene()
 
-  // カメラを作成
-  const camera = new THREE.PerspectiveCamera(45, 800 / 600, 1, 10000)
-  camera.position.set(0, 0, 1000)
+  // ライトを作成
+  const light = new PointLight(0x00ffff)
+  light.position.set(2, 2, 2)
 
-  // 箱を作成
-  const geometry = new THREE.BoxGeometry(250, 250, 250)
-  const material = new THREE.MeshPhongMaterial({ color: 0xff0000 })
-  const box = new THREE.Mesh(geometry, material)
-  box.position.z = -5
-  scene.add(box)
-
-  // 平行光源を生成
-  const light = new THREE.DirectionalLight(0xffffff)
-  light.position.set(1, 1, 1)
+  // ライトをシーンに追加
   scene.add(light)
 
-  const tick = (): void => {
-    requestAnimationFrame(tick)
+  // 立方体のジオメトリを作成
+  const geo = new BoxGeometry(1, 1, 1)
 
-    box.rotation.x += 0.05
-    box.rotation.y += 0.05
+  // マテリアルを作成
+  const mat = new MeshLambertMaterial({ color: 0xffffff })
 
-    // 描画
+  // ジオメトリとマテリアルからメッシュを作成
+  const mesh = new Mesh(geo, mat)
+
+  // メッシュをシーンに追加
+  scene.add(mesh)
+
+  const loop = (): void => {
+    requestAnimationFrame(loop)
+
+    const sec = performance.now() / 1000
+
+    mesh.rotation.x = sec * (Math.PI / 4)
+    mesh.rotation.y = sec * (Math.PI / 4)
+
+    // 描画ループ
     renderer.render(scene, camera)
   }
-  tick()
 
-  console.log('Hello Three.js')
+  loop()
 }
 
 export default Sample
