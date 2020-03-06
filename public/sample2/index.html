@@ -4,6 +4,40 @@
     <meta charset="UTF-8" />
     <script defer src="../main.js"></script>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        height: 100%;
+        background-color: #000;
+      }
+
+      #canvas-container2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #canvas-container canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      #scroll-container {
+        position: relative;
+        width: 100%;
+        height: 200%;
+      }
+
       #scroll-container_title {
         position: absolute;
         top: 50%;
@@ -20,8 +54,11 @@
     </style>
   </head>
   <body>
-    <div id="canvas-container2">
-      <h1 id="scroll-container_title">THREEJS<br />TUTORIAL<br />03</h1>
+    <div id="canvas-container2"></div>
+
+    <!-- スクロール用コンテナ -->
+    <div id="scroll-container">
+      <h1 id="scroll-container_title">THREEJS<br />TUTORIAL<br />04</h1>
     </div>
   </body>
 </html>

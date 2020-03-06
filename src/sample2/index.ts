@@ -48,15 +48,25 @@ const sample2 = () => {
   scene.add(light)
 
   // 立方体のジオメトリを作成（幅、高さ、奥行き）
-  const geo = new BoxGeometry(300, 300, 300)
+  const element = document.getElementById('scroll-container_title')
+  const rect = element.getBoundingClientRect()
+  const depth = 300
+  const geo = new BoxGeometry(rect.width, rect.height, depth)
 
   // マテリアルを作成
   const mat = new MeshLambertMaterial({ color: 0xffffff })
 
   // ジオメトリとマテリアルからメッシュを作成
   const mesh = new Mesh(geo, mat)
-  mesh.rotation.x = Math.PI / 4
-  mesh.rotation.y = Math.PI / 4
+  // mesh.rotation.x = Math.PI / 4
+  // mesh.rotation.y = Math.PI / 4
+
+  // windouw中心からDomRect中心
+  const center = new Vector2(rect.x + rect.width / 2, rect.y + rect.height / 2)
+  const diff = new Vector2(center.x - width / 2, center.y - height / 2)
+  mesh.position.set(diff.x, -(diff.y + scrollY), -depth / 2)
+
+  const offsetY = mesh.position.y
 
   // メッシュをシーンに追加
   scene.add(mesh)
@@ -64,15 +74,15 @@ const sample2 = () => {
   const loop = (): void => {
     requestAnimationFrame(loop)
 
-    // msから秒に変換
-    const sec = performance.now() / 1000
+    // // msから秒に変換
+    // const sec = performance.now() / 1000
 
-    // 1秒で45度回転する
-    mesh.rotation.x = sec * (Math.PI / 4)
-    mesh.rotation.y = sec * (Math.PI / 4)
+    // // 1秒で45度回転する
+    // mesh.rotation.x = sec * (Math.PI / 4)
+    // mesh.rotation.y = sec * (Math.PI / 4)
 
-    // スクロールに追従させる
-    mesh.position.y = scrollY
+    // // スクロールに追従させる
+    mesh.position.y = offsetY + scrollY
 
     // 画面に表示
     renderer.render(scene, camera)
