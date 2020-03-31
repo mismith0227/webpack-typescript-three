@@ -1,6 +1,7 @@
 import Sample from './sample1'
 import Sample2 from './sample2'
 import Study from './study1'
+import Study2 from './study2'
 
 window.addEventListener('DOMContentLoaded', () => {
   const path = location.pathname.split('/')[1]
@@ -9,4 +10,5 @@ window.addEventListener('DOMContentLoaded', () => {
   path === 'sample' && Sample()
   path === 'sample2' && Sample2()
   path === 'study1' && Study()
+  path === 'study2' && Study2()
 })
