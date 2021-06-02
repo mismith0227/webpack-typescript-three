@@ -60,6 +60,7 @@ const Study = () => {
   scene.add(particle)
 
   const render = () => {
+    particle.rotation.x -= 0.001
     controls.update()
     requestAnimationFrame(render)
     renderer.render(scene, camera)
