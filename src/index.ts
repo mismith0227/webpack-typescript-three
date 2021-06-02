@@ -6,11 +6,11 @@ import Study3 from './study3'
 
 window.addEventListener('DOMContentLoaded', () => {
   const path = location.pathname.split('/')[1]
-  console.log(path)
+  location.pathname.includes('sample')
 
-  path === 'sample' && Sample()
-  path === 'sample2' && Sample2()
-  path === 'study1' && Study()
-  path === 'study2' && Study2()
-  path === 'study3' && Study3()
+  location.pathname.includes('sample') && Sample()
+  location.pathname.includes('sample2') && Sample2()
+  location.pathname.includes('study1') && Study()
+  location.pathname.includes('study2') && Study2()
+  location.pathname.includes('study3') && Study3()
 })
