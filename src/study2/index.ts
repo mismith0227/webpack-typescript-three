@@ -14,7 +14,8 @@ import {
 } from 'three'
 
 const Study = () => {
-  const colors = [0xde5006, 0x42447, 0xc0a468, 0xf38d58, 0x615173]
+  // const colors = [0xde5006, 0x42447, 0xc0a468, 0xf38d58, 0x615173]
+  const colors = [0x000000]
   let obj = []
   const width = window.innerWidth
   const height = window.innerHeight
@@ -82,25 +83,27 @@ const Study = () => {
   }
 
   function Tetrahedron() {
-    this.size = Math.random()
+    const size = Math.random()
 
-    this.color = colors[Math.floor(Math.random() * colors.length)]
+    // ランダムの色にする場合
+    const color = colors[Math.floor(Math.random() * colors.length)]
 
-    this.geometry = new TetrahedronGeometry(this.size * 17, 0)
-    this.material = new MeshLambertMaterial({ color: this.color })
-    this.shape = new Mesh(this.geometry, this.material)
+    const geometry = new TetrahedronGeometry(size * 17, 0)
+    const material = new MeshLambertMaterial({ color: color })
+    const circle = Math.floor(Math.random() * 100 + 300)
+    let circle_rotation = Math.random() * Math.PI * 2
+
+    this.shape = new Mesh(geometry, material)
     this.shape.position.set(Math.floor(Math.random() * 150) + 300, 0, 0)
-    this.circle_rotation = Math.random() * Math.PI * 2
     this.shape.castShadow = true
     this.shape.receiveShadow = true
-    this.circle = Math.floor(Math.random() * 100 + 300)
 
-    this.animate = function() {
-      this.shape.position.y = Math.sin(this.circle_rotation) * this.circle
-      this.shape.position.z = Math.cos(this.circle_rotation) * this.circle
-      this.shape.rotation.x += this.size * 0.05
-      this.shape.rotation.z += this.size * 0.1
-      this.circle_rotation += 0.002
+    this.animate = function () {
+      this.shape.position.y = Math.sin(circle_rotation) * circle
+      this.shape.position.z = Math.cos(circle_rotation) * circle
+      this.shape.rotation.x += size * 0.05
+      this.shape.rotation.z += size * 0.1
+      circle_rotation += 0.002
     }
   }
 

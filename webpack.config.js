@@ -15,6 +15,10 @@ module.exports = {
         test: /\.ts$/,
         use: 'ts-loader',
       },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'url-loader',
+      },
     ],
   },
   devServer: {
@@ -26,5 +30,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'node_modules'),
+    ],
   },
 }

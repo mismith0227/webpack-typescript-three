@@ -11,11 +11,12 @@
   "devDependencies": {
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
+    "url-loader": "^4.1.1",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "three": "^0.112.1",
+    "three": "^0.128.0",
     "webpack-dev-server": "^3.10.3"
   }
 }
