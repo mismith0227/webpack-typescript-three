@@ -8,12 +8,7 @@ import {
   Mesh,
   MeshPhongMaterial,
   AmbientLight,
-  PlaneGeometry,
   DirectionalLight,
-  LoadingManager,
-  Group,
-  TetrahedronGeometry,
-  MeshLambertMaterial,
 } from 'three'
 import { EffectComposer } from '../../node_modules/three/examples/jsm/postprocessing/EffectComposer.js'
 import { RenderPass } from '../../node_modules/three/examples/jsm/postprocessing/RenderPass.js'
