@@ -7,9 +7,8 @@ import Study4 from './study4'
 
 window.addEventListener('DOMContentLoaded', () => {
   const path = location.pathname.split('/')[1]
-  location.pathname.includes('sample')
 
-  location.pathname.includes('sample') && Sample()
+  location.pathname.includes('sample1') && Sample()
   location.pathname.includes('sample2') && Sample2()
   location.pathname.includes('study1') && Study()
   location.pathname.includes('study2') && Study2()

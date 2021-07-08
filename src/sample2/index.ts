@@ -100,11 +100,11 @@ const sample2 = () => {
     scrollY = y
   }
 
-  window.addEventListener('mousemove', e => {
+  window.addEventListener('mousemove', (e) => {
     mouseMoved(e.clientX, e.clientY)
   })
 
-  window.addEventListener('scroll', e => {
+  window.addEventListener('scroll', (e) => {
     scrolled(window.scrollY)
   })
 
