@@ -1,5 +1,6 @@
 import Sample from './sample1'
 import Sample2 from './sample2'
+import Sample3 from './sample3'
 import Study from './study1'
 import Study2 from './study2'
 import Study3 from './study3'
@@ -10,6 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   location.pathname.includes('sample1') && Sample()
   location.pathname.includes('sample2') && Sample2()
+  location.pathname.includes('sample3') && Sample3()
   location.pathname.includes('study1') && Study()
   location.pathname.includes('study2') && Study2()
   location.pathname.includes('study3') && Study3()

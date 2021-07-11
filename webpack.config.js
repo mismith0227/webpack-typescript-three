@@ -19,6 +19,12 @@ module.exports = {
         test: /\.(jpg|png)$/,
         loader: 'url-loader',
       },
+      {
+        test: /\.(vert|frag|glsl)$/,
+        use: {
+          loader: 'webpack-glsl-loader',
+        },
+      },
     ],
   },
   devServer: {
