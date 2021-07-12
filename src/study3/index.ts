@@ -10,7 +10,7 @@ import {
   TextureLoader,
 } from 'three'
 import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls.js'
-import t from '../img/kirakira.png'
+import tImage from '../img/kirakira.png'
 
 const Study = () => {
   const container = document.getElementById('canvas-container5')
@@ -36,7 +36,7 @@ const Study = () => {
   controls.enableDamping = true
 
   const textureLoader = new TextureLoader()
-  const texture = textureLoader.load(t)
+  const texture = textureLoader.load(tImage)
 
   const geometry = new BufferGeometry()
   const count = 1000
