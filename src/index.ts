@@ -6,6 +6,7 @@ import Study from './study1'
 import Study2 from './study2'
 import Study3 from './study3'
 import Study4 from './study4'
+import Study5 from './study5'
 
 window.addEventListener('DOMContentLoaded', () => {
   const path = location.pathname.split('/')[1]
@@ -18,4 +19,5 @@ window.addEventListener('DOMContentLoaded', () => {
   location.pathname.includes('study2') && Study2()
   location.pathname.includes('study3') && Study3()
   location.pathname.includes('study4') && Study4()
+  location.pathname.includes('study5') && Study5()
 })

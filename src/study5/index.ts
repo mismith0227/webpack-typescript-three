@@ -11,11 +11,16 @@ import {
 
 import vertexSource from './shaders/shader.vert'
 import fragmentSource from './shaders/shader.frag'
-import tImage from '../img/image1.jpg'
 
-const sample4 = () => {
+import tImage1 from '../img/image1.jpg'
+import tImage2 from '../img/image2.jpg'
+import dImage from '../img/7.jpg'
+
+const Study5 = () => {
   const loader = new TextureLoader()
-  const texture = loader.load(tImage)
+  const texture1 = loader.load(tImage1)
+  const texture2 = loader.load(tImage2)
+  const disp = loader.load(dImage)
   const width = window.innerWidth
   const height = window.innerHeight
 
@@ -36,28 +41,21 @@ const sample4 = () => {
   // 平面をつくる（幅, 高さ, 横分割数, 縦分割数）
   const geo = new PlaneGeometry(2, 2, 1, 1)
 
-  const mouse = new Vector2(0.5, 0.5)
-  let targetPercent = 0.0
+  let dispFactorValue = 0.0
 
   const uniforms = {
-    uAspect: {
-      value: width / height,
+    uTex1: {
+      value: texture1,
     },
-    uTime: {
-      value: 0.0,
+    uTex2: {
+      value: texture2,
     },
-    uMouse: {
-      value: new Vector2(0.5, 0.5),
+    uDisp: {
+      value: disp,
     },
-    uPercent: {
-      value: targetPercent,
-    },
-    uFixAspect: {
-      value: height / width,
-    },
-    uTex: {
-      value: texture,
-    },
+    resolution: { type: 'v2', value: new Vector2(width, height) },
+    imageResolution: { type: 'v2', value: new Vector2(1024, 683) },
+    dispFactor: { type: 'f', value: dispFactorValue },
   }
 
   const mat = new ShaderMaterial({
@@ -75,14 +73,9 @@ const sample4 = () => {
 
     const sec = performance.now() / 1000
 
-    // シェーダーに渡す時間を更新
-    uniforms.uTime.value = sec
-
-    // シェーダーに渡すマウスを更新
-    uniforms.uMouse.value.lerp(mouse, 0.2)
-
     // シェーダーに渡す進捗度を更新
-    uniforms.uPercent.value += (targetPercent - uniforms.uPercent.value) * 0.1
+    uniforms.dispFactor.value +=
+      (dispFactorValue - uniforms.dispFactor.value) * 0.1
 
     // 描画ループ
     renderer.render(scene, camera)
@@ -90,12 +83,14 @@ const sample4 = () => {
 
   render()
 
-  window.addEventListener('mousedown', (e) => {
-    targetPercent = 1
+  const element = document.getElementById('hover-trigger')
+
+  element.addEventListener('mouseenter', (e) => {
+    dispFactorValue = 1
   })
-  window.addEventListener('mouseup', (e) => {
-    targetPercent = 0.0
+  element.addEventListener('mouseleave', (e) => {
+    dispFactorValue = 0
   })
 }
 
-export default sample4
+export default Study5
