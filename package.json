@@ -9,11 +9,11 @@
     "build": "webpack --display-error-details --progress --mode production"
   },
   "devDependencies": {
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.5",
-    "url-loader": "^4.1.1",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "ts-loader": "6.2.1",
+    "typescript": "3.8.3",
+    "url-loader": "4.1.1",
+    "webpack": "4.41.6",
+    "webpack-cli": "3.3.11"
   },
   "dependencies": {
     "three": "^0.128.0",
