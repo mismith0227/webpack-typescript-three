@@ -14,7 +14,7 @@ import fragmentSource from './shaders/shader.frag'
 
 import tImage1 from '../img/image1.jpg'
 import tImage2 from '../img/image2.jpg'
-import dImage from '../img/7.jpg'
+import dImage from '../img/image3.jpg'
 
 const Study5 = () => {
   const loader = new TextureLoader()

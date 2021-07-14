@@ -24,7 +24,7 @@ void main(void) {
   );
 
   vec4 disp = texture2D(uDisp, uv);
-  vec2 calcPosition = uv + rotate2d(3.14) * vec2(disp.r,disp.g) * (1.0 - dispFactor) * 0.1;
+  vec2 calcPosition = uv + rotate2d(3.14) * vec2(disp.r,disp.g) * (1.0 - dispFactor) * 0.2;
 
   vec4 _texture1 = texture2D(uTex1, uv);
   vec4 _texture2 = texture2D(uTex2, calcPosition);
