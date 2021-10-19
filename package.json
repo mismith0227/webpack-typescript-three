@@ -16,7 +16,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "three": "^0.128.0",
+    "three": "^0.133.0",
     "webpack-dev-server": "^3.10.3",
     "webpack-glsl-loader": "^1.0.1"
   }
