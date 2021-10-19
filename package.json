@@ -9,7 +9,7 @@
     "build": "webpack --display-error-details --progress --mode production"
   },
   "devDependencies": {
-    "ts-loader": "^6.2.1",
+    "ts-loader": "9.2.6",
     "typescript": "^3.7.5",
     "url-loader": "^4.1.1",
     "webpack": "^4.41.5",
